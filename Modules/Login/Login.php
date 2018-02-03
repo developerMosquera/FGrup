@@ -3,10 +3,18 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 19:20:13
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-02 23:57:14
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-03 10:36:49
  */
 
+require '../../Application/Session.php';
+
+Session::start();
+
+if(Session::getSession('usuarioOn') === true)
+{
+  Session::redirect('http://' . $_SERVER['HTTP_HOST'] . '/FGrup/fgrup.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +29,7 @@
 <body>
 
 	<div class="row">
-  	<div class="col-md-4 col-md-offset-4">
+  	<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
       <div id="logueoPanel" class="panel panel-default">
 
       	<form id="formLogin" class="formSubmit" method="post" data-toggle="validator" role="form" autocomplete="off">
@@ -59,11 +67,14 @@
 				</form>
 
       </div>
+
+      <div id="logueoAlerta" class="alert alert-danger" role="alert" style="display: none;"></div>
+
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+    <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-12">
     	<div id="cargandoLogueo">
         <b>Cargando...</b>
       </div>

@@ -4,7 +4,7 @@
  * @Author: amosquera
  * @Date:   2018-02-01 18:16:44
  * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-01 23:49:34
+ * @Last Modified time: 2018-02-03 10:30:06
  */
 
 /**
@@ -38,6 +38,8 @@ class Session
     if(Session::getSession('usuarioOn') !== true)
     {
       Session::redirect('Modules/Login/Login.php');
+    } else {
+      Session::redirect('fgrup.php');
     }
   }
 
@@ -46,7 +48,7 @@ class Session
     header('location: ' . $url);
   }
 
-  public static function destroySession()
+  public static function destroy()
   {
     session_destroy();
   }
