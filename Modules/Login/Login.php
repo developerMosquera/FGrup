@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 19:20:13
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-02 19:24:20
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-02 23:57:14
  */
 
 ?>
@@ -12,20 +12,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>App FGrup</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>American FarmaGrup S.A.S.</title>
+  <link rel="stylesheet" type="text/css" href="../../Public/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=<?php echo time();?>" />
 </head>
 <body>
 
-	<form class="formSubmit" id="formLogin" action="login/authenticate" method="post">
-		<input type="text" name="user" id="user" />
-		<input type="text" name="pass" id="pass" />
-    <input type="text" name="controller" id="controller" value="login" />
-    <input type="text" name="method" id="method" value="authenticate" />
-    <input type="text" name="action" id="action" value="post" />
-		<input type="submit" name="ingresar" />
-	</form>
+	<div class="row">
+  	<div class="col-md-4 col-md-offset-4">
+      <div id="logueoPanel" class="panel panel-default">
+
+      	<form id="formLogin" class="formSubmit" method="post" data-toggle="validator" role="form" autocomplete="off">
+					<div class="panel-body">
+						<div id="logo">
+            	<img src="../../Static/img/mundoAmfg.png">
+            </div>
+
+						<div class="form-group">
+            	<label for="user" class="control-label">Usuario</label>
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                <input type="text" name="user" class="form-control logueoData" id="user" placeholder="Usuario" autofocus required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pass" class="control-label">Contraseña</label>
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                <input type="password" name="pass" class="form-control logueoData" id="pass" placeholder="Contraseña" required>
+              </div>
+            </div>
+
+					</div>
+					<div class="panel-footer">
+            <div class="form-group">
+            	<button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+          </div>
+
+          <input type="hidden" name="controller" id="controller" value="login" />
+    			<input type="hidden" name="method" id="method" value="authenticate" />
+    			<input type="hidden" name="action" id="action" value="post" />
+				</form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+    	<div id="cargandoLogueo">
+        <b>Cargando...</b>
+      </div>
+    </div>
+  </div>
 
 	<script type="text/javascript" src="../../Public/js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/login.js?v=<?php echo time();?>"></script>
+  <script type="text/javascript" src="../../Public/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../Public/js/validator-form.min.js"></script>
+  <script type="text/javascript" src="js/login.js?v=<?php echo time();?>"></script>
 </body>
 </html>

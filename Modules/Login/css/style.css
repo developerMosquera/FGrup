@@ -1,0 +1,29 @@
+/*
+* @Author: developerMosquera
+* @Date:   2018-02-02 21:34:37
+* @Last Modified by:   developerMosquera
+* @Last Modified time: 2018-02-02 23:43:12
+*/
+
+body
+{
+  background-image: url("../../../Static/img/Farmaceutica.jpg");
+  font-size: 16px;
+}
+
+.row
+{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#logueoPanel
+{
+  margin-top: 100px;
+}
+
+#logo
+{
+	text-align: center;
+  padding: 0px 0px 15px 0px;
+}
