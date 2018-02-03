@@ -4,7 +4,7 @@
  * @Author: developerMosquera
  * @Date:   2018-01-31 19:20:13
  * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-03 10:36:49
+ * @Last Modified time: 2018-02-03 13:03:39
  */
 
 require '../../Application/Session.php';
@@ -64,6 +64,7 @@ if(Session::getSession('usuarioOn') === true)
           <input type="hidden" name="controller" id="controller" value="login" />
     			<input type="hidden" name="method" id="method" value="authenticate" />
     			<input type="hidden" name="action" id="action" value="post" />
+          <input type="hidden" name="serverHost" id="serverHost" value="<?php echo $_SERVER['HTTP_HOST']; ?>" />
 				</form>
 
       </div>
@@ -75,7 +76,7 @@ if(Session::getSession('usuarioOn') === true)
 
   <div class="row">
     <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-12">
-    	<div id="cargandoLogueo">
+    	<div id="loadingLogin">
         <b>Cargando...</b>
       </div>
     </div>

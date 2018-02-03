@@ -2,7 +2,7 @@
 * @Author: developerMosquera
 * @Date:   2018-02-02 21:34:37
 * @Last Modified by:   amosquera
-* @Last Modified time: 2018-02-03 00:43:38
+* @Last Modified time: 2018-02-03 12:24:07
 */
 
 body
@@ -29,7 +29,7 @@ body
   padding: 0px 0px 15px 0px;
 }
 
-#cargandoLogueo
+#loadingLogin
 {
   background-color: #FFF;
   text-align: center;
