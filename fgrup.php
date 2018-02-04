@@ -13,7 +13,7 @@ Session::start();
 
 if(Session::getSession('usuarioOn') !== true)
 {
-  Session::redirect('index.php');
+ // Session::redirect('index.php');
 }
 ?>
 
