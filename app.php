@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:36:50
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-03 19:43:28
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-04 11:45:02
  */
 
 
@@ -38,3 +38,32 @@ Routes::run();
 //Llamados ajax para realizar el MVC
 Request::run();
 ?>
+
+/***
+  Controlador general lanzado hasta el controlador 
+var Controlador = function ()
+{
+  this.listar = function(metodo, filtro) {
+
+    var dataListar = $.Deferred();
+
+    $.ajax({
+      url: 'App/Controladores/Controlador.php',
+      type: 'post',
+      data: { metodo: metodo, filtro: filtro },
+      cache: false,
+      success: function(data) {
+        var result = JSON.parse(data);
+        dataListar.resolve(result);
+      }
+    });
+
+    return dataListar.promise();
+  }
+}
+
+var controlador = new Controlador();
+
+controlador.listar("prueba").then(function(data) {
+  console.log(data);
+})
