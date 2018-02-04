@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:14:38
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-03 13:06:56
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-04 14:07:55
  */
 
 require 'Application/Session.php';
@@ -38,7 +38,7 @@ if(Session::getSession('usuarioOn') !== true)
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">American FarmaGrup</a>
+          <a class="navbar-brand" href="#">American FGrup</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
