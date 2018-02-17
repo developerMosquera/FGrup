@@ -4,7 +4,7 @@
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:14:38
  * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-04 17:54:00
+ * @Last Modified time: 2018-02-15 20:07:01
  */
 
 require 'Application/Session.php';
@@ -24,6 +24,8 @@ if(Session::getSession('usuarioOn') !== true)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>American FarmaGrup S.A.S.</title>
     <link rel="stylesheet" type="text/css" href="Public/css/bootstrap.min.css" />
+    <link href='Public/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='Public/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <link rel="stylesheet" type="text/css" href="Public/css/style.css?v=<?php echo time();?>" />
   </head>
 
@@ -72,8 +74,11 @@ if(Session::getSession('usuarioOn') !== true)
 
     <script type="text/javascript" src="Public/js/jquery.min.js"></script>
     <script type="text/javascript" src="Public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='Public/js/moment.min.js'></script>
+    <script type="text/javascript" src='Public/js/fullcalendar.min.js'></script>
     <script type="text/javascript" src="Public/js/validator-form.min.js?v=<?php echo time();?>"></script>
     <script type="text/javascript" src="Public/js/rutas.js?v=<?php echo time();?>"></script>
+    <script type="text/javascript" src="Public/js/controllerGeneral.js?v=<?php echo time();?>"></script>
   </body>
 
 </html>

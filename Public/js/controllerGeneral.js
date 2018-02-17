@@ -2,35 +2,31 @@
 * @Author: developerMosquera
 * @Date:   2018-02-04 14:24:00
 * @Last Modified by:   developerMosquera
-* @Last Modified time: 2018-02-04 14:25:06
+* @Last Modified time: 2018-02-04 19:34:12
 */
 
 /***
 	Controlador general para hacer peticiones al core de la aplicaciòn con callback
 ***/
-var Controlador = function ()
+var ControllerGeneral = function ()
 {
-  this.listar = function(metodo, filtro) {
+  this.request = function(controller, method) {
 
-    var dataListar = $.Deferred();
+    var request = $.Deferred();
 
     $.ajax({
-      url: 'App/Controladores/Controlador.php',
+      url: 'app.php',
       type: 'post',
-      data: { metodo: metodo, filtro: filtro },
+      data: { controller: controller, method: method, action: 'post' },
       cache: false,
       success: function(data) {
         var result = JSON.parse(data);
-        dataListar.resolve(result);
+        request.resolve(result);
       }
     });
 
-    return dataListar.promise();
+    return request.promise();
   }
 }
 
-var controlador = new Controlador();
-
-controlador.listar("prueba").then(function(data) {
-  console.log(data);
-})
+var ControllerRequest = new ControllerGeneral();

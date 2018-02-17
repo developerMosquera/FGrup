@@ -4,7 +4,7 @@
  * @Author: amosquera
  * @Date:   2018-02-03 13:05:58
  * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-03 21:05:07
+ * @Last Modified time: 2018-02-04 19:24:05
  */
 
 ?>
@@ -51,4 +51,4 @@
   </div>
 </div>
 
-<script type="text/javascript" src="Modules/Usuarios/js/usuarios.js"></script>
+<script type="text/javascript" src="Modules/Usuarios/js/usuarios.js?v=<?php echo time();?>"></script>
