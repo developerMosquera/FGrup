@@ -1,8 +1,8 @@
 /*
 * @Author: amosquera
 * @Date:   2018-02-17 19:06:00
-* @Last Modified by:   amosquera
-* @Last Modified time: 2018-02-17 21:42:37
+* @Last Modified by:   developerMosquera
+* @Last Modified time: 2018-02-17 22:52:51
 */
 
 
@@ -39,8 +39,11 @@ jQuery(document).ready(function($) {
           start: "2018-02-10"
         }
       ],
-      dayClick: function(event) {
+      eventClick: function(event, jsEvent, view) {
         console.log(event);
+        console.log(jsEvent);
+        console.log(view);
+        $('#myModalProgramador').modal();
       }
     });
 });

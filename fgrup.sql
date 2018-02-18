@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-02-2018 a las 21:43:46
--- Versión del servidor: 10.0.33-MariaDB-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
+-- Tiempo de generación: 18-02-2018 a las 14:16:38
+-- Versión del servidor: 5.7.20
+-- Versión de PHP: 7.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -107,15 +109,16 @@ CREATE TABLE `programador` (
   `ESTADO` smallint(6) NOT NULL DEFAULT '1',
   `FECHA` date NOT NULL,
   `COMBINACION` int(11) DEFAULT NULL,
-  `ESTADO_COMBINACION` smallint(1) DEFAULT NULL
+  `ESTADO_COMBINACION` smallint(1) DEFAULT NULL,
+  `FECHA_CREACION` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `programador`
 --
 
-INSERT INTO `programador` (`ID`, `LLAVE`, `SERIAL`, `ID_SERVICIO`, `ID_CLIENTE`, `ID_CREADOR`, `ID_TECNICO`, `ESTADO`, `FECHA`, `COMBINACION`, `ESTADO_COMBINACION`) VALUES
-(1, '1254512511251', '254512511251', 1, 1, 1, 1, 1, '2018-02-28', 0, 0);
+INSERT INTO `programador` (`ID`, `LLAVE`, `SERIAL`, `ID_SERVICIO`, `ID_CLIENTE`, `ID_CREADOR`, `ID_TECNICO`, `ESTADO`, `FECHA`, `COMBINACION`, `ESTADO_COMBINACION`, `FECHA_CREACION`) VALUES
+(1, '1254512511251', '254512511251', 1, 1, 1, 1, 1, '2018-02-28', 0, 0, '2018-02-27 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -132,10 +135,18 @@ CREATE TABLE `programador_historial` (
   `ID_CREADOR` int(11) NOT NULL,
   `ID_TECNICO` int(11) NOT NULL,
   `ESTADO` smallint(6) NOT NULL DEFAULT '1',
-  `FECHA` int(11) NOT NULL,
-  `COMBINACION` int(11) NOT NULL,
-  `ESTADO_COMBINACION` smallint(1) NOT NULL
+  `FECHA` date NOT NULL,
+  `COMBINACION` int(11) DEFAULT NULL,
+  `ESTADO_COMBINACION` smallint(1) DEFAULT NULL,
+  `FECHA_CREACION` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `programador_historial`
+--
+
+INSERT INTO `programador_historial` (`ID`, `LLAVE`, `SERIAL`, `ID_SERVICIO`, `ID_CLIENTE`, `ID_CREADOR`, `ID_TECNICO`, `ESTADO`, `FECHA`, `COMBINACION`, `ESTADO_COMBINACION`, `FECHA_CREACION`) VALUES
+(1, '1254512511251', '254512511251', 1, 1, 1, 1, 1, '2018-02-28', 0, 0, '2018-02-20 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -197,7 +208,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `USUARIO`, `CONTRASENA`, `NOMBRE`, `PERFIL`, `PERMISOS`, `ESTADO`, `FECHA_VENCIMIENTO`, `TOKEN`) VALUES
-(1, 'julian', '$2y$10$PeBxGU/nPcL7uZHI6kCtze.8ltkJoCbGgKWniaL/1Ir4u4ghXcDKi', 'Andres Julian Mosquera', 1, 'config=0,usuarios=0,', 1, '2019-10-31', '74551c04ea6192cd83a374fa8969d37f'),
+(1, 'julian', '$2y$10$PeBxGU/nPcL7uZHI6kCtze.8ltkJoCbGgKWniaL/1Ir4u4ghXcDKi', 'Andres Julian Mosquera', 1, 'config=0,usuarios=0,', 1, '2019-10-31', '6bd0eb146e7a66bca612f91ba424e3ba'),
 (2, 'ingrid', '34fsdfsf', 'Ingrid Gonzalez', 1, '', 1, '2018-08-31', 'dsfsdfgg');
 
 --
@@ -269,36 +280,44 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `clientes`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de la tabla `programador`
 --
 ALTER TABLE `programador`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `programador_historial`
 --
 ALTER TABLE `programador_historial`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
