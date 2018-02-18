@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-02-2018 a las 23:51:55
--- Versión del servidor: 5.7.20
--- Versión de PHP: 7.1.13
+-- Tiempo de generación: 17-02-2018 a las 21:43:46
+-- Versión del servidor: 10.0.33-MariaDB-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -39,6 +37,13 @@ CREATE TABLE `clientes` (
   `ESTADO` smallint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`ID`, `CLIENTE`, `NIT`, `DIRECCION`, `TELEFONO`, `CORREO_1`, `CORREO_2`, `ESTADO`) VALUES
+(1, 'Farmacias emoty', '12546988-1', 'cr 54 # 32 - 40', 7584566, 'femoty@hotmail.com', '', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +59,13 @@ CREATE TABLE `equipos` (
   `ESTADO` smallint(1) DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `equipos`
+--
+
+INSERT INTO `equipos` (`ID`, `EQUIPO`, `SERIAL`, `SERAIL_REAL`, `MODELO`, `ESTADO`) VALUES
+(1, 'prueba1', '254512511251', '25K25-5421--521', '5643', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -62,16 +74,16 @@ CREATE TABLE `equipos` (
 
 CREATE TABLE `estados` (
   `ID` int(11) NOT NULL,
-  `NOMBRE` varchar(30) NOT NULL,
+  `ESTADO` varchar(30) NOT NULL,
   `DIAS_MAX` int(11) NOT NULL,
-  `ESTADO` smallint(1) NOT NULL DEFAULT '1'
+  `ESTADO_E` smallint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `estados`
 --
 
-INSERT INTO `estados` (`ID`, `NOMBRE`, `DIAS_MAX`, `ESTADO`) VALUES
+INSERT INTO `estados` (`ID`, `ESTADO`, `DIAS_MAX`, `ESTADO_E`) VALUES
 (1, 'Cotizaciòn', 3, 1),
 (2, 'Posible', 20, 1),
 (3, 'Programado', 10, 1),
@@ -93,10 +105,17 @@ CREATE TABLE `programador` (
   `ID_CREADOR` int(11) NOT NULL,
   `ID_TECNICO` int(11) NOT NULL,
   `ESTADO` smallint(6) NOT NULL DEFAULT '1',
-  `FECHA` int(11) NOT NULL,
-  `COMBINACION` int(11) NOT NULL,
-  `ESTADO_COMBINACION` smallint(1) NOT NULL
+  `FECHA` date NOT NULL,
+  `COMBINACION` int(11) DEFAULT NULL,
+  `ESTADO_COMBINACION` smallint(1) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `programador`
+--
+
+INSERT INTO `programador` (`ID`, `LLAVE`, `SERIAL`, `ID_SERVICIO`, `ID_CLIENTE`, `ID_CREADOR`, `ID_TECNICO`, `ESTADO`, `FECHA`, `COMBINACION`, `ESTADO_COMBINACION`) VALUES
+(1, '1254512511251', '254512511251', 1, 1, 1, 1, 1, '2018-02-28', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +145,7 @@ CREATE TABLE `programador_historial` (
 
 CREATE TABLE `servicios` (
   `ID` int(11) NOT NULL,
-  `SERVICIOS` varchar(100) NOT NULL,
+  `SERVICIO` varchar(100) NOT NULL,
   `ALIAS` varchar(100) NOT NULL,
   `PERIOCIDAD` smallint(6) NOT NULL,
   `CONBINACION` varchar(20) NOT NULL DEFAULT '0',
@@ -137,7 +156,7 @@ CREATE TABLE `servicios` (
 -- Volcado de datos para la tabla `servicios`
 --
 
-INSERT INTO `servicios` (`ID`, `SERVICIOS`, `ALIAS`, `PERIOCIDAD`, `CONBINACION`, `ESTADO`) VALUES
+INSERT INTO `servicios` (`ID`, `SERVICIO`, `ALIAS`, `PERIOCIDAD`, `CONBINACION`, `ESTADO`) VALUES
 (1, 'Mantenimiento', 'Mantenimiento', 6, '0', 1),
 (2, 'Calibraciòn', 'Calibraciòn', 6, '0', 1),
 (3, 'Correctivo', 'Correctivo', 0, '0', 1),
@@ -178,7 +197,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `USUARIO`, `CONTRASENA`, `NOMBRE`, `PERFIL`, `PERMISOS`, `ESTADO`, `FECHA_VENCIMIENTO`, `TOKEN`) VALUES
-(1, 'julian', '$2y$10$PeBxGU/nPcL7uZHI6kCtze.8ltkJoCbGgKWniaL/1Ir4u4ghXcDKi', 'Andres Julian Mosquera', 1, 'config=0,usuarios=0,', 1, '2019-10-31', '3a0606bd4e44eefae7bca0d62413b5bf'),
+(1, 'julian', '$2y$10$PeBxGU/nPcL7uZHI6kCtze.8ltkJoCbGgKWniaL/1Ir4u4ghXcDKi', 'Andres Julian Mosquera', 1, 'config=0,usuarios=0,', 1, '2019-10-31', '74551c04ea6192cd83a374fa8969d37f'),
 (2, 'ingrid', '34fsdfsf', 'Ingrid Gonzalez', 1, '', 1, '2018-08-31', 'dsfsdfgg');
 
 --
@@ -249,45 +268,37 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `programador`
 --
 ALTER TABLE `programador`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `programador_historial`
 --
 ALTER TABLE `programador_historial`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
