@@ -3,13 +3,13 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:49:50
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-03 19:01:18
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-17 19:04:57
  */
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'root');
+define('DB_PASS', '123456789');
 define('DB_NAME', 'fgrup');
 define('DB_CHAR', 'utf8');
 

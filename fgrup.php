@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:14:38
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-15 20:07:01
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-17 20:03:20
  */
 
 require 'Application/Session.php';
@@ -76,6 +76,7 @@ if(Session::getSession('usuarioOn') !== true)
     <script type="text/javascript" src="Public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src='Public/js/moment.min.js'></script>
     <script type="text/javascript" src='Public/js/fullcalendar.min.js'></script>
+    <script type="text/javascript" src='Public/js/fullcalendarEs.js'></script>
     <script type="text/javascript" src="Public/js/validator-form.min.js?v=<?php echo time();?>"></script>
     <script type="text/javascript" src="Public/js/rutas.js?v=<?php echo time();?>"></script>
     <script type="text/javascript" src="Public/js/controllerGeneral.js?v=<?php echo time();?>"></script>
