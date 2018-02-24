@@ -1,8 +1,8 @@
 /*
 * @Author: amosquera
 * @Date:   2018-02-17 19:06:00
-* @Last Modified by:   developerMosquera
-* @Last Modified time: 2018-02-17 22:52:51
+* @Last Modified by:   amosquera
+* @Last Modified time: 2018-02-22 23:09:46
 */
 
 
@@ -10,17 +10,6 @@ jQuery(document).ready(function($) {
 
   //Día por defecto para el calendario
   var defaultDate = $('#defaultDate').val();
-  //Array para almacenar los eventos y mostrar en el calendario
-  var events = new Array();
-
-  ControllerRequest.request('programador', 'listAll').then(function(data) {
-    console.log(data);
-    data.map(function(index, elem) {
-      events.push({'title': index.EQUIPO, 'start': index.FECHA});
-    });
-  });
-
-  console.log(events);
 
   $('#programadorCalendar').fullCalendar({
       header: {
@@ -31,19 +20,30 @@ jQuery(document).ready(function($) {
       defaultDate: defaultDate,
       navLinks: true, // can click day/week names to navigate views
       editable: true,
-      eventLimit: true, // allow "more" link when too many events
-      events: [
-        {
-          id: 25,
-          title: "prueba",
-          start: "2018-02-10"
-        }
-      ],
+      events: {
+          url: 'app.php',
+          type: 'POST',
+          data: {
+             controller: 'programador', method: 'listAllProgramador', action: 'post'
+          },
+          error: function() {
+              console.log('Algo esta mal en el programador ajax fullcalendar');
+          }
+      },
+      allDay: false,
       eventClick: function(event, jsEvent, view) {
-        console.log(event);
+        /*console.log(event);
         console.log(jsEvent);
         console.log(view);
-        $('#myModalProgramador').modal();
+        $('#myModalProgramador').modal();*/
+      },
+      eventDrop: function(event, delta) {
+
+        console.log(event.id);
+        console.log(event.title);
+        console.log(moment(event.start).format());
+        /*console.log(delta);*/
+        //console.log(data);
       }
     });
 });

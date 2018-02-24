@@ -3,8 +3,8 @@
 /**
  * @Author: amosquera
  * @Date:   2018-02-03 13:05:58
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-04 19:24:05
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-18 10:44:11
  */
 
 ?>
@@ -30,7 +30,7 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="table-responsive">
 
-      <table class="table table-striped">
+      <table id="dataTableUsers" class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -44,7 +44,30 @@
             <th></th>
           </tr>
         </thead>
-        <tbody id="tableListUsers"></tbody>
+        <tbody id="tableListUsers">
+          <tr>
+            <td>1</td>
+            <td>Andres</td>
+            <td>Andres Mosquera</td>
+            <td>Todos</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Paulin</td>
+            <td>Paulin Lopez</td>
+            <td>Todos</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+            <td>1991-01-04</td>
+          </tr>
+        </tbody>
       </table>
 
     </div>

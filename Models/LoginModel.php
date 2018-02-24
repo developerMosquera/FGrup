@@ -4,7 +4,7 @@
  * @Author: developerMosquera
  * @Date:   2018-01-31 19:56:05
  * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-03 00:54:15
+ * @Last Modified time: 2018-02-22 22:32:59
  */
 
 /**
@@ -40,7 +40,7 @@ class LoginModel extends Model
         return array("result" => false, "mensaje" => "Verifique, usuario se encuentra vencido");
       } else {
         //Varible donde almacenamos datos del usuario para cargarlos a una session
-        $usuarioData = array("estado" => $result[0]['ESTADO'], "usuario" => $result[0]['USUARIO'], "token" => $result[0]['TOKEN'], "nombre" => $result[0]['NOMBRE'], "perfil" => $result[0]['PERFIL'], "permisos" => $result[0]['PERMISOS']);
+        $usuarioData = array("idUsuario" => $result[0]['ID'], "estado" => $result[0]['ESTADO'], "usuario" => $result[0]['USUARIO'], "token" => $result[0]['TOKEN'], "nombre" => $result[0]['NOMBRE'], "perfil" => $result[0]['PERFIL'], "permisos" => $result[0]['PERMISOS']);
 
         //Creamos la session
         Session::setSession("usuarioOn", true);

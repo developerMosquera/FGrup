@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-02-15 20:09:12
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-17 23:11:00
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-18 21:58:47
  */
 ?>
 
@@ -16,7 +16,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         Programador
-        <div class="helper pull-right"><a href="#Programador/agregar" title="Agregar usuario"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
+        <div class="helper pull-right"><a href="#Equipos/equipos" title="Agregar al programador"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
       </div>
     </div>
   </div>
