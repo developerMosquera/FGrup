@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-02-15 20:09:12
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-18 21:58:47
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-25 15:33:30
  */
 ?>
 
@@ -31,24 +31,68 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade bs-example-modal-lg" id="myModalProgramador" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
+<!-- Modal editr el evento en el calendario -->
+<div class="modal fade bs-example-modal-md" id="myModalProgramador" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Editar evento</h4>
+        <h4 class="modal-title" id="myModalLabel">Editar</h4>
       </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
+      <form id="formAddAprogramador" method="post" data-toggle="validator" role="form" autocomplete="off">
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="nombreEquipo">Cliente</label>
+            <input type="text" class="form-control" name="cliente" id="cliente" placeholder="Cliente" readonly>
+          </div>
+          <div class="form-group">
+            <label for="nombreEquipo">Nombre equipo</label>
+            <input type="text" class="form-control" name="nombreEquipo" id="nombreEquipo" placeholder="Nombre equipo" readonly>
+          </div>
+          <div class="form-group">
+            <label for="nombreEquipo">Serial equipo</label>
+            <input type="text" class="form-control" name="serialEquipo" id="serialEquipo" placeholder="Serial equipo" readonly>
+          </div>
+          <div class="form-group">
+            <label for="nombreEquipo">Estado servicio</label>
+            <input type="text" class="form-control" name="estadoServicio" id="estadoServicio" placeholder="Estado servicio" readonly>
+          </div>
+          <div class="form-group">
+            <label for="nombreEquipo">Tipo servicio</label>
+            <input type="text" class="form-control" name="tipoServicio" id="tipoServicio" placeholder="Tipo servicio" readonly>
+          </div>
+          <div class="form-group">
+            <label for="tecnico">Tecnico</label>
+            <select name="tecnico" id="tecnico" data-live-search="true" class="form-control" required></select>
+          </div>
+          <div class="form-group">
+            <div class='input-group date' id='datepickerProgramador'>
+              <input type="text" name="fechaProgramado" id="fechaProgramado" value="" class="form-control" required />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+
+          <input type="hidden" name="cliente" id="cliente" value="" />
+          <input type="hidden" name="serialSistema" id="serialSistema" value="" />
+
+          <input type="hidden" name="controller" id="controller" value="programador" />
+          <input type="hidden" name="method" id="method" value="insert" />
+          <input type="hidden" name="action" id="action" value="post" />
+          <input type="hidden" name="serverHost" id="serverHost" value="<?php echo $_SERVER['HTTP_HOST']; ?>" />
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+<!-- Fin -->
 
 <input type="hidden" id="defaultDate" value="<?= date("Y-m-d"); ?>" />
 

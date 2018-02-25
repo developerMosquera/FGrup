@@ -3,8 +3,8 @@
 /**
  * @Author: amosquera
  * @Date:   2018-02-18 21:22:04
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-23 22:23:12
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-25 15:11:28
  */
 
 /**
@@ -70,6 +70,9 @@ class EquiposModel extends Model
 
           $sql = $this->db->prepare("INSERT INTO programador (LLAVE, SERIAL_SISTEMA, ID_SERVICIO, ID_CLIENTE, ID_CREADOR, FECHA_PROGRAMADOR, FECHA_CREACION) VALUES (:llave, :serialSistema, :idServicio, :idCliente, :idCreador, :fechaProgramador, :fechaCreacion)");
           $sql->execute(array(':llave' => $serialSistema . $idServicio, ':serialSistema' => $serialSistema, ':idServicio' => $idServicio, ':idCliente' => $idCliente, ':idCreador' => $idCreador, ':fechaProgramador' => $fechaProgramador, ':fechaCreacion' => date("Y-m-d H:i:s")));
+
+          $sqlHistorial = $this->db->prepare("INSERT INTO programador_historial (LLAVE, SERIAL_SISTEMA, ID_SERVICIO, ID_CLIENTE, ID_CREADOR, FECHA_PROGRAMADOR, FECHA_CREACION) VALUES (:llave, :serialSistema, :idServicio, :idCliente, :idCreador, :fechaProgramador, :fechaCreacion)");
+          $sqlHistorial->execute(array(':llave' => $serialSistema . $idServicio, ':serialSistema' => $serialSistema, ':idServicio' => $idServicio, ':idCliente' => $idCliente, ':idCreador' => $idCreador, ':fechaProgramador' => $fechaProgramador, ':fechaCreacion' => date("Y-m-d H:i:s")));
           $affectedRows = $sql->rowCount();
           if($affectedRows > 0)
           {
@@ -108,6 +111,9 @@ class EquiposModel extends Model
 
         $sql = $this->db->prepare("INSERT INTO programador (LLAVE, SERIAL_SISTEMA, ID_SERVICIO, ID_CLIENTE, ID_CREADOR, FECHA_PROGRAMADOR, FECHA_CREACION) VALUES (:llave, :serialSistema, :idServicio, :idCliente, :idCreador, :fechaProgramador, :fechaCreacion)");
         $sql->execute(array(':llave' => $serialSistema . $idServicio, ':serialSistema' => $serialSistema, ':idServicio' => $idServicio, ':idCliente' => $idCliente, ':idCreador' => $idCreador, ':fechaProgramador' => $fechaProgramador, ':fechaCreacion' => date("Y-m-d H:i:s")));
+
+        $sqlHistorial = $this->db->prepare("INSERT INTO programador_historial (LLAVE, SERIAL_SISTEMA, ID_SERVICIO, ID_CLIENTE, ID_CREADOR, FECHA_PROGRAMADOR, FECHA_CREACION) VALUES (:llave, :serialSistema, :idServicio, :idCliente, :idCreador, :fechaProgramador, :fechaCreacion)");
+        $sqlHistorial->execute(array(':llave' => $serialSistema . $idServicio, ':serialSistema' => $serialSistema, ':idServicio' => $idServicio, ':idCliente' => $idCliente, ':idCreador' => $idCreador, ':fechaProgramador' => $fechaProgramador, ':fechaCreacion' => date("Y-m-d H:i:s")));
         $affectedRows = $sql->rowCount();
         if($affectedRows > 0)
         {
@@ -121,7 +127,7 @@ class EquiposModel extends Model
       }
 
     } else {
-      return array("result" => false, "mensaje" => "Equipo no almacenado");
+      return array("result" => false, "mensaje" => "Equipo no almacenado o ya registrado");
     }
   }
 }

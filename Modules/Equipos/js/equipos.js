@@ -2,7 +2,7 @@
 * @Author: amosquera
 * @Date:   2018-02-18 12:26:52
 * @Last Modified by:   developerMosquera
-* @Last Modified time: 2018-02-24 11:57:45
+* @Last Modified time: 2018-02-25 13:08:33
 */
 
 jQuery(document).ready(function($) {
@@ -34,7 +34,6 @@ jQuery(document).ready(function($) {
     $(tbody).on('click', 'button.clickListAdd', function(e) {
       e.preventDefault();
       var data = table.row( $(this).parents('tr')).data();
-      console.log(data);
       $('#cliente').val(data.ID_CLIENTE);
       $('#serialSistema').val(data.SERIAL_SISTEMA);
       $('#myModalAgregarAprogramador').modal();
@@ -46,17 +45,20 @@ jQuery(document).ready(function($) {
     {
       e.preventDefault();
       var formData = $(this).serialize();
+      $('#formAddAprogramador .closeModal').click();
       ControllerGeneral.requestForm(formData).then(function(data) {
-        console.log(data);
-        /*if(data.result === true)
+        if(data.result === true)
         {
-          window.location.href = 'http://'+ $('#serverHost').val() +'/FGrup/fgrup.php#Programador/programador';
+          $('.alertSql').html('<div class="alert alert-success alert-dismissible" role="alert">\
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+                                <strong>Exito!</strong> '+ data.mensaje +'.\
+                              </div>');
         } else {
           $('.alertSql').html('<div class="alert alert-danger alert-dismissible" role="alert">\
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
                                 <strong>Warning!</strong> '+ data.mensaje +'.\
                               </div>');
-        }*/
+        }
       });
     }
   });
@@ -110,6 +112,13 @@ jQuery(document).ready(function($) {
     });
 
     $('#eligirServicio').selectpicker();
+
+    $('#agregarServicio').html('<option> </option>');
+    data.map(function(index, elem) {
+      $('#agregarServicio').append('<option value='+ index.ID + '|'+ index.PERIOCIDAD +'>'+ index.SERVICIO +'</option>');
+    });
+
+    $('#agregarServicio').selectpicker();
   });
 
   $('#formAgregarEquipo').validator().on('submit', function (e) {

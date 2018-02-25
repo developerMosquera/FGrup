@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:14:38
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-22 18:54:01
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-25 14:55:05
  */
 
 require 'Application/Session.php';
@@ -28,6 +28,7 @@ if(Session::getSession('usuarioOn') !== true)
     <link rel="stylesheet" type="text/css" href='Public/css/fullcalendar.min.css' rel='stylesheet' />
     <link rel="stylesheet" type="text/css" href='Public/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <link rel="stylesheet" type="text/css" href='Public/css/bootstrap-select.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href='Public/css/bootstrap-datetimepicker.min.css' rel='stylesheet' />
     <link rel="stylesheet" type="text/css" href="Public/css/style.css?v=<?php echo time();?>" />
   </head>
 
@@ -83,6 +84,7 @@ if(Session::getSession('usuarioOn') !== true)
     <script type="text/javascript" src='Public/js/fullcalendar.min.js'></script>
     <script type="text/javascript" src='Public/js/fullcalendarEs.js'></script>
     <script type="text/javascript" src="Public/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="Public/js/rutas.js"></script>
     <script type="text/javascript" src="Public/js/controllerGeneral.js"></script>
   </body>

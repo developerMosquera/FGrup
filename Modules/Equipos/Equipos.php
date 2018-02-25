@@ -4,7 +4,7 @@
  * @Author: amosquera
  * @Date:   2018-02-18 12:21:33
  * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-24 12:15:22
+ * @Last Modified time: 2018-02-25 12:43:56
  */
 
 ?>
@@ -28,6 +28,15 @@
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+    <!--
+      Devlver aqui alertas Boostrap indicando los problemas con el SQL
+    -->
+    <div class="alertSql"></div>
+    <!--
+      Fin
+    -->
+
     <div class="table-responsive">
 
       <table id="dataTableEquipos" class="table table-striped">
@@ -59,8 +68,8 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="eligirServicio">Servicio</label>
-            <select name="servicio" id="eligirServicio" data-live-search="true" class="form-control" required></select>
+            <label for="agregarServicio">Servicio</label>
+            <select name="servicio" id="agregarServicio" data-live-search="true" class="form-control" required></select>
           </div>
 
           <input type="hidden" name="cliente" id="cliente" value="" />
@@ -73,7 +82,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Cerrar</button>
           <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
       </form>

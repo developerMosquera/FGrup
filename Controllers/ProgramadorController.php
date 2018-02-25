@@ -3,8 +3,8 @@
 /**
  * @Author: amosquera
  * @Date:   2018-02-17 19:38:01
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-23 22:42:02
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-25 12:28:46
  */
 
 /**
@@ -31,8 +31,7 @@ class ProgramadorController extends Controller
 
   public function insert()
   {
-    //echo json_encode($this->model->insert());
-    print_r($_POST);
+    echo json_encode($this->model->insert());
   }
 }
 ?>
