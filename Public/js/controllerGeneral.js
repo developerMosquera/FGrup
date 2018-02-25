@@ -1,8 +1,8 @@
 /*
 * @Author: developerMosquera
 * @Date:   2018-02-04 14:24:00
-* @Last Modified by:   amosquera
-* @Last Modified time: 2018-02-23 22:42:23
+* @Last Modified by:   developerMosquera
+* @Last Modified time: 2018-02-24 12:01:30
 */
 
 /***
@@ -47,8 +47,8 @@ var ControllerGeneral = function ()
       data: formData,
       cache: false,
       success: function(data) {
-        //var result = JSON.parse(data);
-        requestForm.resolve(data);
+        var result = JSON.parse(data);
+        requestForm.resolve(result);
       }
     });
 

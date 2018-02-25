@@ -3,8 +3,8 @@
 /**
  * @Author: amosquera
  * @Date:   2018-02-18 12:21:33
- * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-23 22:43:17
+ * @Last Modified by:   developerMosquera
+ * @Last Modified time: 2018-02-24 12:15:22
  */
 
 ?>
@@ -63,13 +63,13 @@
             <select name="servicio" id="eligirServicio" data-live-search="true" class="form-control" required></select>
           </div>
 
-          <input type="text" name="cliente" id="cliente" value="" />
-          <input type="text" name="serialSistema" id="serialSistema" value="" />
+          <input type="hidden" name="cliente" id="cliente" value="" />
+          <input type="hidden" name="serialSistema" id="serialSistema" value="" />
 
-          <input type="text" name="controller" id="controller" value="programador" />
-          <input type="text" name="method" id="method" value="insert" />
-          <input type="text" name="action" id="action" value="post" />
-          <input type="text" name="serverHost" id="serverHost" value="<?php echo $_SERVER['HTTP_HOST']; ?>" />
+          <input type="hidden" name="controller" id="controller" value="programador" />
+          <input type="hidden" name="method" id="method" value="insert" />
+          <input type="hidden" name="action" id="action" value="post" />
+          <input type="hidden" name="serverHost" id="serverHost" value="<?php echo $_SERVER['HTTP_HOST']; ?>" />
 
         </div>
         <div class="modal-footer">

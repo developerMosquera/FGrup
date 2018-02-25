@@ -1,8 +1,8 @@
 /*
 * @Author: amosquera
 * @Date:   2018-02-18 12:26:52
-* @Last Modified by:   amosquera
-* @Last Modified time: 2018-02-23 22:44:09
+* @Last Modified by:   developerMosquera
+* @Last Modified time: 2018-02-24 11:57:45
 */
 
 jQuery(document).ready(function($) {
@@ -118,6 +118,7 @@ jQuery(document).ready(function($) {
       e.preventDefault();
       var formData = $(this).serialize();
       ControllerGeneral.requestForm(formData).then(function(data) {
+        console.log(data);
         if(data.result === true)
         {
           window.location.href = 'http://'+ $('#serverHost').val() +'/FGrup/fgrup.php#Programador/programador';
