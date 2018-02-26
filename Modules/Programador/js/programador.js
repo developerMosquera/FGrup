@@ -1,8 +1,8 @@
 /*
 * @Author: amosquera
 * @Date:   2018-02-17 19:06:00
-* @Last Modified by:   developerMosquera
-* @Last Modified time: 2018-02-25 15:03:44
+* @Last Modified by:   amosquera
+* @Last Modified time: 2018-02-25 19:47:50
 */
 
 
@@ -27,14 +27,33 @@ jQuery(document).ready(function($) {
              controller: 'programador', method: 'listAllProgramador', action: 'post'
           },
           error: function() {
-              console.log('Algo esta mal en el programador ajax fullcalendar');
+              console.log('Algo esta mal!!!');
           }
       },
       allDay: false,
       eventClick: function(event, jsEvent, view) {
-        console.log(event);
-        console.log(jsEvent);
-        console.log(view);
+        console.log(event.id);
+
+        var filterSql = {llave: event.id}
+
+        ControllerGeneral.requestFilter('programador', 'listOne', filterSql).then(function(data) {
+          console.log(data[0].ID_ESTADO);
+          $('#myModalLabelProgramador').html(data[0].EQUIPO);
+          $('#cliente').val(data[0].CLIENTE);
+          $('#serialEquipo').val(data[0].SERIAL_REAL);
+          $('#estadoServicio').val(data[0].ESTADO);
+          $('#tipoServicio').val(data[0].SERVICIO);
+          $('#fechaMaxEstado').val(moment(event.start).format());
+
+          if(data[0].ID_ESTADO == 3)
+          {
+            $('.activeProgramado').show();
+          } else {
+            $('.activeProgramado').hide();
+          }
+
+        });
+
         $('#myModalProgramador').modal();
       },
       eventDrop: function(event, delta) {
@@ -47,7 +66,20 @@ jQuery(document).ready(function($) {
     });
 
   $('#datepickerProgramador').datetimepicker({
-                format: 'YYYY-MM-DD'
-            });
+    format: 'YYYY-MM-DD'
+  });
+
+  ControllerGeneral.request('users', 'listAll').then(function(data) {
+    $('#tecnico').html('<option> </option>');
+    data.map(function(index, elem) {
+      if(index.ID_PERFIL == 4)
+      {
+        $('#tecnico').append('<option value='+ index.ID +'>'+ index.NOMBRE +'</option>');
+      }
+
+    });
+
+    $('#tecnico').selectpicker();
+  });
 
 });

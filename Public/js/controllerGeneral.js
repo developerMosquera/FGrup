@@ -1,8 +1,8 @@
 /*
 * @Author: developerMosquera
 * @Date:   2018-02-04 14:24:00
-* @Last Modified by:   developerMosquera
-* @Last Modified time: 2018-02-25 14:56:48
+* @Last Modified by:   amosquera
+* @Last Modified time: 2018-02-25 19:33:56
 */
 
 /***
@@ -29,6 +29,30 @@ var ControllerGeneral = function ()
     });
 
     return request.promise();
+  }
+  /***
+    Fin
+  ***/
+
+  /***
+    Retornando DataJson usando un filtro para la consulta
+  ***/
+  this.requestFilter = function(controller, method, filterSql) {
+
+    var requestFilter = $.Deferred();
+
+    $.ajax({
+      url: 'app.php',
+      type: 'post',
+      data: { controller: controller, method: method, action: 'post', filterSql: filterSql },
+      cache: false,
+      success: function(data) {
+        var result = JSON.parse(data);
+        requestFilter.resolve(result);
+      }
+    });
+
+    return requestFilter.promise();
   }
   /***
     Fin

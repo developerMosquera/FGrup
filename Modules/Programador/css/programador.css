@@ -1,0 +1,24 @@
+/*
+* @Author: amosquera
+* @Date:   2018-02-25 19:54:23
+* @Last Modified by:   amosquera
+* @Last Modified time: 2018-02-25 20:03:35
+*/
+
+.marginTop20px
+{
+  margin-top: 20px;
+}
+
+.contentLeyendaCalendar
+{
+  display: inline-block;
+}
+
+.leyendaCalendar
+{
+  width: 15px;
+  height: 15px;
+  border-radius: 30px;
+  display: inline-block;
+}

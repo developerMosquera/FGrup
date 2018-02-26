@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-02-2018 a las 22:55:20
--- Versión del servidor: 5.7.20
--- Versión de PHP: 7.1.13
+-- Tiempo de generación: 25-02-2018 a las 20:05:52
+-- Versión del servidor: 10.0.33-MariaDB-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -276,10 +274,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `USUARIO`, `CONTRASENA`, `NOMBRE`, `CEDULA`, `PERFIL`, `PERMISOS`, `ESTADO`, `FECHA_VENCIMIENTO`, `TOKEN`) VALUES
-(1, 'julian', '$2y$10$PeBxGU/nPcL7uZHI6kCtze.8ltkJoCbGgKWniaL/1Ir4u4ghXcDKi', 'Andres Julian Mosquera', '1022965455', 1, 'config=0,usuarios=0,', 1, '2019-10-31', 'ef884f49e50b4b6969696ddb075c503b'),
+(1, 'julian', '$2y$10$PeBxGU/nPcL7uZHI6kCtze.8ltkJoCbGgKWniaL/1Ir4u4ghXcDKi', 'Andres Julian Mosquera', '1022965455', 1, 'config=0,usuarios=0,', 1, '2019-10-31', '8a7deae459e48da08b51c6a1ab7a70fd'),
 (2, 'ingrid', '34fsdfsf', 'Ingrid Gonzalez', '1022974148', 1, '', 1, '2018-08-31', 'dsfsdfgg'),
 (3, 'plopez', 'asda23424', 'Paulin Lopez', '114134575', 4, '', 1, '2020-12-31', ''),
-(4, 'azuñiga', 'asdad34234', 'Adriana Ziñiga', '53102898', 4, '', 1, '2020-01-30', '');
+(4, 'azuñiga', 'asdad34234', 'Adriana Zuñiga', '53102898', 4, '', 1, '2020-01-30', '');
 
 --
 -- Índices para tablas volcadas
@@ -357,50 +355,41 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `clientes`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `programador`
 --
 ALTER TABLE `programador`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT de la tabla `programador_historial`
 --
 ALTER TABLE `programador_historial`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -3,8 +3,8 @@
 /**
  * @Author: amosquera
  * @Date:   2018-02-17 19:23:23
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-25 13:28:24
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-25 19:40:48
  */
 
 /**
@@ -21,6 +21,13 @@ class ProgramadorModel extends Model
   {
     $sql = $this->db->prepare("SELECT programador.SERIAL_SISTEMA, programador.FECHA_PROGRAMADOR, equipos.EQUIPO, servicios.SERVICIO, servicios.ALIAS, clientes.CLIENTE, usuarios.NOMBRE AS CREADOR, usuarios_tecnico.NOMBRE AS TECNICO, estados.ESTADO  FROM programador LEFT JOIN equipos ON equipos.SERIAL_SISTEMA = programador.SERIAL_SISTEMA LEFT JOIN servicios ON servicios.ID = programador.ID_SERVICIO LEFT JOIN clientes ON clientes.ID = programador.ID_CLIENTE LEFT JOIN usuarios ON usuarios.ID = programador.ID_CREADOR LEFT JOIN usuarios AS usuarios_tecnico ON usuarios_tecnico.ID = programador.ID_TECNICO LEFT JOIN estados ON estados.ID = programador.ESTADO");
     $sql->execute();
+    return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function listOne()
+  {
+    $sql = $this->db->prepare("SELECT programador.SERIAL_SISTEMA, equipos.SERIAL_REAL, estados.ID AS ID_ESTADO, programador.FECHA_PROGRAMADOR, equipos.EQUIPO, servicios.SERVICIO, servicios.ALIAS, clientes.CLIENTE, usuarios.NOMBRE AS CREADOR, usuarios_tecnico.NOMBRE AS TECNICO, estados.ESTADO FROM programador LEFT JOIN equipos ON equipos.SERIAL_SISTEMA = programador.SERIAL_SISTEMA LEFT JOIN servicios ON servicios.ID = programador.ID_SERVICIO LEFT JOIN clientes ON clientes.ID = programador.ID_CLIENTE LEFT JOIN usuarios ON usuarios.ID = programador.ID_CREADOR LEFT JOIN usuarios AS usuarios_tecnico ON usuarios_tecnico.ID = programador.ID_TECNICO LEFT JOIN estados ON estados.ID = programador.ESTADO WHERE programador.LLAVE = :llave");
+    $sql->execute(array(":llave" => $_POST['filterSql']['llave']));
     return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
   }
 

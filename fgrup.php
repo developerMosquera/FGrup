@@ -3,8 +3,8 @@
 /**
  * @Author: developerMosquera
  * @Date:   2018-01-31 18:14:38
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-25 14:55:05
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-02-25 18:45:43
  */
 
 require 'Application/Session.php';
@@ -85,6 +85,7 @@ if(Session::getSession('usuarioOn') !== true)
     <script type="text/javascript" src='Public/js/fullcalendarEs.js'></script>
     <script type="text/javascript" src="Public/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="Public/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src='Public/js/Chart.min.js'></script>
     <script type="text/javascript" src="Public/js/rutas.js"></script>
     <script type="text/javascript" src="Public/js/controllerGeneral.js"></script>
   </body>
