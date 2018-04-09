@@ -3,8 +3,8 @@
 /**
  * @Author: amosquera
  * @Date:   2018-02-18 12:21:33
- * @Last Modified by:   developerMosquera
- * @Last Modified time: 2018-02-25 12:43:56
+ * @Last Modified by:   amosquera
+ * @Last Modified time: 2018-03-31 23:16:12
  */
 
 ?>
@@ -44,7 +44,7 @@
           <tr>
             <th>#</th>
             <th>Cliente</th>
-            <th>Equipo</th>
+            <th>Tipo equipo</th>
             <th>Serial</th>
             <th>Modelo</th>
             <th></th>

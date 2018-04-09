@@ -4,7 +4,7 @@
  * @Author: amosquera
  * @Date:   2018-02-18 21:20:40
  * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-22 22:00:22
+ * @Last Modified time: 2018-03-31 23:28:20
  */
 
 /**
@@ -24,10 +24,29 @@ class EquiposController extends Controller
     echo json_encode($this->model->listAll());
   }
 
+  public function listAllTiposEquipos()
+  {
+    echo json_encode($this->model->listAllTiposEquipos());
+  }
+
+  public function listAllMarcasEquipos()
+  {
+    echo json_encode($this->model->listAllMarcasEquipos());
+  }
+
+  public function listAllTiposEquiposMasServiciosGarantias()
+  {
+    echo json_encode($this->model->listAllTiposEquiposMasServiciosGarantias());
+  }
+
+  public function listAllTiposEquiposMasServiciosNoGarantias()
+  {
+    echo json_encode($this->model->listAllTiposEquiposMasServiciosNoGarantias());
+  }
+
   public function insert()
   {
     echo json_encode($this->model->insert());
-    //print_r($_POST);
   }
 }
 

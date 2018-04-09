@@ -4,7 +4,7 @@
  * @Author: amosquera
  * @Date:   2018-02-18 21:30:11
  * @Last Modified by:   amosquera
- * @Last Modified time: 2018-02-22 23:24:10
+ * @Last Modified time: 2018-03-31 23:10:05
  */
 
 ?>
@@ -14,8 +14,8 @@
 -->
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-body">
+    <div class="panel panel-info">
+      <div class="panel-body" style="background-color: #D8EDF6;">
         Equipos - agregar
       </div>
     </div>
@@ -36,20 +36,28 @@
       Fin
     -->
 
-    <div class="panel panel-primary">
+    <div class="panel panel-success">
       <form id="formAgregarEquipo" method="post" data-toggle="validator" role="form" autocomplete="off">
         <div class="panel-body">
 
           <div class="row">
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="panel panel-default">
+              <div class="panel panel-success">
                 <div class="panel-heading">Equipo</div>
                 <div class="panel-body">
 
                   <div class="form-group">
-                    <label for="nombreEquipo">Nombre equipo</label>
-                    <input type="text" class="form-control" name="nombreEquipo" id="nombreEquipo" placeholder="Nombre equipo" required>
+                    <div class="form-group">
+                      <label for="elegirTipoEquipo">Tipo equipo</label>
+                      <select name="tipoEquipo" id="elegirTipoEquipo" data-live-search="true" class="form-control" required></select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="elegirMarcaEquipo">Marca equipo</label>
+                      <select name="marcaEquipo" id="elegirMarcaEquipo" data-live-search="true" class="form-control" required></select>
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="serialCliente">Serial equipo</label>
@@ -65,7 +73,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="panel panel-default">
+              <div class="panel panel-success">
                 <div class="panel-heading">Servicio</div>
                 <div class="panel-body">
 
@@ -79,7 +87,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="panel panel-default">
+              <div class="panel panel-success">
                 <div class="panel-heading">Cliente
                   <div id="helperActiveNewClienteControl" class="helper pull-right">
                     <a href="#" id="activeNewClienteControl" title="Agregar cliente">
@@ -121,6 +129,22 @@
                       <input type="number" class="form-control inputNewCliente" name="telefonoCliente" id="telefonoCliente" placeholder="Teléfono cliente">
                     </div>
                     <div class="form-group">
+                      <label for="telefonoCliente">Celular cliente</label>
+                      <input type="number" class="form-control" name="celularCliente" id="celularCliente" placeholder="Celular cliente">
+                    </div>
+                    <div class="form-group">
+                      <label for="telefonoCliente">Ciudad</label>
+                      <input type="text" class="form-control inputNewCliente" name="ciudad" id="ciudad" placeholder="Ciudad">
+                    </div>
+                    <div class="form-group">
+                      <label for="telefonoCliente">Contacto</label>
+                      <input type="text" class="form-control inputNewCliente" name="contacto" id="contacto" placeholder="Contacto">
+                    </div>
+                    <div class="form-group">
+                      <label for="emailClienteDos">Contacto 2</label>
+                      <input type="text" class="form-control" name="contactoDos" id="contactoDos" placeholder="Contacto 2">
+                    </div>
+                    <div class="form-group">
                       <label for="emailCliente">Email cliente</label>
                       <input type="email" class="form-control inputNewCliente" name="emailCliente" id="emailCliente" placeholder="Email cliente">
                     </div>
@@ -129,7 +153,7 @@
                       <input type="email" class="form-control" name="emailClienteDos" id="emailClienteDos" placeholder="Email 2 cliente">
                     </div>
                   </div>
-                  <!-- input de estado para validar si se agregara un nuevo cliente 0 no 1 si se agregara -->
+                  <!-- input de estado para validar si se agregara un nuevo cliente; 0 no 1 si se agregara -->
                   <input type="hidden" id="statusNewClienteControl" name="statusNewClienteControl" value="0">
 
                   <input type="hidden" name="controller" id="controller" value="equipos" />
@@ -145,7 +169,7 @@
 
         </div>
         <div class="panel-footer">
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" class="btn btn-success">Enviar</button>
         </div>
       </form>
     </div>

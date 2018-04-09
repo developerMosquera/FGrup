@@ -1,8 +1,8 @@
 /*
 * @Author: amosquera
 * @Date:   2018-02-18 12:26:52
-* @Last Modified by:   developerMosquera
-* @Last Modified time: 2018-02-25 13:08:33
+* @Last Modified by:   amosquera
+* @Last Modified time: 2018-04-01 00:29:52
 */
 
 jQuery(document).ready(function($) {
@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
     var columns = [
       { "data" : "ID" },
       { "data" : "CLIENTE" },
-      { "data" : "EQUIPO" },
+      { "data" : "TIPO_EQUIPO" },
       { "data" : "SERIAL_REAL" },
       { "data" : "MODELO" },
       {"defaultContent": "<button type='button' class='btn btn-danger clickListEdit' aria-label='Left Align'>\
@@ -34,9 +34,22 @@ jQuery(document).ready(function($) {
     $(tbody).on('click', 'button.clickListAdd', function(e) {
       e.preventDefault();
       var data = table.row( $(this).parents('tr')).data();
+
       $('#cliente').val(data.ID_CLIENTE);
       $('#serialSistema').val(data.SERIAL_SISTEMA);
       $('#myModalAgregarAprogramador').modal();
+
+      var filterSql = {idTipoEquipo: data.ID_TIPO_EQUIPO}
+
+      ControllerGeneral.requestFilter('equipos', 'listAllTiposEquiposMasServiciosGarantias', filterSql).then(function(data) {
+        $('#agregarServicio').html('<option> </option>');
+        data.map(function(index, elem) {
+          $('#agregarServicio').append('<option value='+ index.ID_SERVICIO +'|'+ index.CONBINACION +'|'+ index.PRIMER_ESTADO +'|'+ index.DIAS_MAX +'>'+ index.SERVICIO +'</option>');
+        });
+
+        $('#agregarServicio').selectpicker('refresh');
+      });
+
     });
   }
 
@@ -104,22 +117,52 @@ jQuery(document).ready(function($) {
   });
 
   /*** JS para listar en un select los servicios ***/
-  /************************************************/
-  ControllerGeneral.request('servicios', 'listAll').then(function(data) {
-    $('#eligirServicio').html('<option> </option>');
-    data.map(function(index, elem) {
-      $('#eligirServicio').append('<option value='+ index.ID +'>'+ index.SERVICIO +'</option>');
-    });
+  /*************************************************/
+  $('#elegirTipoEquipo').on('change', function() {
+    if($(this).val() != "")
+    {
+      var filterSql = {idTipoEquipo: $(this).val()}
 
-    $('#eligirServicio').selectpicker();
+      ControllerGeneral.requestFilter('equipos', 'listAllTiposEquiposMasServiciosNoGarantias', filterSql).then(function(data) {
+        console.log(data);
+        $('#eligirServicio').html('<option> </option>');
+        data.map(function(index, elem) {
+          $('#eligirServicio').append('<option value='+ index.ID_SERVICIO +'|'+ index.CONBINACION +'|'+ index.PRIMER_ESTADO +'|'+ index.DIAS_MAX +'>'+ index.SERVICIO +'</option>');
+        });
 
-    $('#agregarServicio').html('<option> </option>');
-    data.map(function(index, elem) {
-      $('#agregarServicio').append('<option value='+ index.ID + '|'+ index.PERIOCIDAD +'>'+ index.SERVICIO +'</option>');
-    });
-
-    $('#agregarServicio').selectpicker();
+        $('#eligirServicio').selectpicker('refresh');
+      });
+    } else {
+      $('#eligirServicio').html('');
+      $('#eligirServicio').selectpicker('refresh');
+    }
   });
+
+  /*** JS para listar en un select los tipos de equipos ***/
+  /********************************************************/
+  ControllerGeneral.request('equipos', 'listAllTiposEquipos').then(function(data) {
+    $('#elegirTipoEquipo').html('<option> </option>');
+    data.map(function(index, elem) {
+      $('#elegirTipoEquipo').append('<option value='+ index.ID +'>'+ index.TIPO_EQUIPO +'</option>');
+    });
+
+    $('#elegirTipoEquipo').selectpicker();
+  });
+  /*** Fin ***/
+  /***********/
+
+  /*** JS para listar en un select las marca de equipos ***/
+  /********************************************************/
+  ControllerGeneral.request('equipos', 'listAllMarcasEquipos').then(function(data) {
+    $('#elegirMarcaEquipo').html('<option> </option>');
+    data.map(function(index, elem) {
+      $('#elegirMarcaEquipo').append('<option value='+ index.ID +'>'+ index.MARCA_EQUIPO +'</option>');
+    });
+
+    $('#elegirMarcaEquipo').selectpicker();
+  });
+  /*** Fin ***/
+  /***********/
 
   $('#formAgregarEquipo').validator().on('submit', function (e) {
     if(!e.isDefaultPrevented())

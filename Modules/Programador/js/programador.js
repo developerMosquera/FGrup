@@ -2,7 +2,7 @@
 * @Author: amosquera
 * @Date:   2018-02-17 19:06:00
 * @Last Modified by:   amosquera
-* @Last Modified time: 2018-02-25 19:47:50
+* @Last Modified time: 2018-04-01 00:32:23
 */
 
 
@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
 
         ControllerGeneral.requestFilter('programador', 'listOne', filterSql).then(function(data) {
           console.log(data[0].ID_ESTADO);
-          $('#myModalLabelProgramador').html(data[0].EQUIPO);
+          $('#myModalLabelProgramador').html(data[0].TIPO_EQUIPO);
           $('#cliente').val(data[0].CLIENTE);
           $('#serialEquipo').val(data[0].SERIAL_REAL);
           $('#estadoServicio').val(data[0].ESTADO);
